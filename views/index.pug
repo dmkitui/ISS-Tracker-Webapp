@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container-fluid
+    .header-row.row.h-10
+      .header
+        include ./header/header.pug
+    .main.row.h-80
+      .col-8.map
+        include ./body/map.pug
+      .col-4.sidebar
+        include ./body/sidebar.pug
+    .row.h-10
+      .footer-row
+        include ./footer/footer.pug
