@@ -1,7 +1,10 @@
 var map;
-function initMap() {
+async function initMap() {
+	// Get ISS position and center map on the same.
+	let position = await getPosition();
+	console.log('XXXX: ', position)
 	map = new google.maps.Map(document.getElementById('map-div'), {
-		center: {lat: 36.0907578, lng: -119.5948303},
+		center: {lat: parseInt(position.latitude), lng: parseInt(position.longitude)},
 		zoom: 7
 	});
 }
