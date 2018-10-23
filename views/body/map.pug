@@ -1,1 +1,12 @@
-h2 Map area
+div#map-div
+    p Key: #{google_api_key}
+    p he he : `https://maps.googleapis.com/maps/api/js?key=#{google_api_key}&callback=initMap`
+script.
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map-div'), {
+        	center: {lat: 36.0907578, lng: -119.5948303},
+            zoom: 7
+        });
+    }
+script(async defer src="https://maps.googleapis.com/maps/api/js?key=" + google_api_key + "&callback=initMap")
