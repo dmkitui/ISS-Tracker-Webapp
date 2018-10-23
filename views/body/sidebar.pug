@@ -1,4 +1,40 @@
-h3 Sidebar
 .info
-    p Number of people in space:
-    p ISS Pass Times: [xxx]
+    h1= name
+    .container
+        .row
+            .col-6
+                | People In space
+            .col-6.numOfPeople
+                | ...
+        .row
+            .col-6
+                | Names
+            .col-6.namesOfPeople
+                | ...
+    .currentLocation.container
+        .row
+            .col-6.location_info
+                | Current Location:
+            .col-6.coordinates
+                | ...
+
+script.
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://api.open-notify.org/astros.json')
+    xhr.send()
+    xhr.onreadystatechange = function () {
+        // Process the server response here.
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                data = jQuery.parseJSON(xhr.responseText);
+                names = jQuery.map(data.people, (entry) => {
+                	return entry.name
+                })
+            	console.log(names)
+                $('.numOfPeople').text(data.number)
+                $('.namesOfPeople').text(names)
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    }
