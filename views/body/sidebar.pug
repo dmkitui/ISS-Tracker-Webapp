@@ -2,39 +2,27 @@
     h1= name
     .container
         .row
-            .col-6
-                | People In space
-            .col-6.numOfPeople
+            .col-4
+                | People In space:
+            .col-8.numOfPeople
                 | ...
         .row
-            .col-6
-                | Names
-            .col-6.namesOfPeople
-                | ...
+            .col-4
+                | Names:
+            .col-8.namesOfPeople
     .currentLocation.container
         .row
-            .col-6.location_info
+            .col-4.location_info
                 | Current Location:
-            .col-6.coordinates
+            .col-8.myCurrentLocation
                 | ...
+    h2 Fly By Times
+    .fly_by
 
-script.
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://api.open-notify.org/astros.json')
-    xhr.send()
-    xhr.onreadystatechange = function () {
-        // Process the server response here.
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                data = jQuery.parseJSON(xhr.responseText);
-                names = jQuery.map(data.people, (entry) => {
-                	return entry.name
-                })
-            	console.log(names)
-                $('.numOfPeople').text(data.number)
-                $('.namesOfPeople').text(names)
-            } else {
-                alert('There was a problem with the request.');
-            }
-        }
-    }
+
+script(src="javascripts/issData.js")
+script(src="javascripts/sidebar.js")
+
+
+
+
