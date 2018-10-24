@@ -1,4 +1,5 @@
-var map;
+let map;
+let marker;
 
 async function initMap() {
 	// Get ISS position and center map on the same.
@@ -8,7 +9,7 @@ async function initMap() {
 		center: currentPosition,
 		zoom: 3
 	});
-	let marker = new google.maps.Marker({
+	marker = new google.maps.Marker({
 		position: currentPosition,
 		map: map,
 		icon: "images/iss.png",
@@ -21,4 +22,13 @@ async function initMap() {
 		  map.panTo(marker.getPosition());
 		}, 3000);
   	});
+  	window.setTimeout(updateMap, 5000);
+}
+
+async function updateMap() {
+	let currentPosition = await getPosition();
+	let newPosition = new google.maps.LatLng(parseFloat(currentPosition.latitude), parseFloat(currentPosition.longitude));
+	marker.setPosition(newPosition);
+	map.setCenter(newPosition);
+	window.setTimeout(updateMap, 5000);
 }
