@@ -8,6 +8,8 @@ yarn-error.log*
 # IDEA
 .idea/*
 
+.env
+
 # Runtime data
 pids
 *.pid
