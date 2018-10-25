@@ -1,13 +1,19 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
   a.navbar-brand(href='#') International Space Station Tracker
-  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+  button.navbar-toggler.pull-xs-right(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
     span.navbar-toggler-icon
   #navbarNavAltMarkup.collapse.navbar-collapse
     .navbar-nav
       a.nav-item.nav-link.active(href='/home')
         | Home
         span.sr-only (current)
-      a.nav-item.nav-link(href='#') My Account
+      if session.userId
+        a.nav-item.nav-link(href='#') My Account
       a.nav-item.nav-link(href='/about') About
-      a.nav-item.nav-link(href='/users/signup') Sign Up
-      a.nav-item.nav-link(href='/users/login') Login
+      if !session.userId
+        a.nav-item.nav-link(href='/users/signup') Sign Up
+      if session.userId
+        img.avatar.img-circle.hidden-xs-down(src='images/avatar.png', alt='avatar')
+        a.nav-item.nav-link(href='/users/logout') Log Out
+      else
+        a.nav-item.nav-link(href='/users/login') Log In
