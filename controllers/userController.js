@@ -1,17 +1,17 @@
 const User = require("../models/user");
 
-const signupUser = function(req, res){
-	console.log('Maneno iko hapa: ', req.body, res.body)
+const signupUser = function(req, res, next){
 	if (req.body.password !== req.body.confirmPassword) {
-		res.status(400);
-		return res.json('Passwords do not match!');
+		const error = new Error('Passwords do not match!');
+		error.status = 400;
+		return next(error);
 	}
 	User.create(req.body, function(error, results) {
 		if(error){
 			res.status(400);
-			res.json(error);
+			return next(error);
 		} else {
-			res.redirect('/home');
+			res.redirect('/users/login');
 		}
 	});
 };
@@ -32,7 +32,7 @@ const loginUser = function(req, res, next) {
 		const error = new Error('Username and/or password is required')
 		return next(error);
 	}
-}
+};
 
 module.exports.loginUser = loginUser;
 module.exports.signupUser = signupUser;
