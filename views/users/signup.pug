@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    .signup-form.text-center
+        form(action='/users/signup' method='POST' enctype="application/x-www-form-urlencoded")
+            .form-group.col-md-12.form-inline
+                label.col-sm-3(for='name') Name:
+                input#name.form-control(type='text' name='name')
+            .form-group.col-md-12.form-inline
+                label.col-sm-3(for='email') Email address:
+                input#email.form-control(type='email' name='email')
+            .form-group.col-md-12.form-inline
+                label.col-sm-3(for='pwd') Password:
+                input#pwd.form-control(type='password' name='password')
+            .form-group.col-md-12.form-inline
+                label.col-sm-3(for='confirm-pwd') Confirm Password:
+                input#confirm-pwd.form-control(type='password' name='confirmPassword')
+            .form-group.form-check
+                button.btn.btn-primary(type='submit') Submit
