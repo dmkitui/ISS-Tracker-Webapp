@@ -6,5 +6,12 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src="/jquery/jquery.js")
   body
-    block content
-
+    .container-fluid
+      .header-row.row.h-10
+         .header
+          include ./header/header.pug
+      .main.row.h-80
+        block content
+      .row.h-10
+        .footer-row
+          include ./footer/footer.pug
