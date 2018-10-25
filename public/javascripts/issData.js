@@ -17,9 +17,22 @@ async function currentPosition() {
 		//try to get user current location using getCurrentPosition() method
 		navigator.geolocation.getCurrentPosition(function (position) {
 			let myLocation = {"lat": position.coords.latitude, "long": position.coords.longitude};
-			$(".myCurrentLocation").text(`Lat: ${myLocation.lat} Lon: ${myLocation.long}`);
 			flyByTimes(myLocation);
+			let google_map_pos = new google.maps.LatLng( myLocation.lat, myLocation.long );
+			const google_maps_geocoder = new google.maps.Geocoder();
+                google_maps_geocoder.geocode(
+                    { 'latLng': google_map_pos },
+                    function( results, status ) {
+                        if ( status == google.maps.GeocoderStatus.OK && results[0] ) {
+                            let currentlocation = results[0].formatted_address;
+                            $(".myCurrentLocation").text(currentlocation);
+                        } else {
+                        	$(".myCurrentLocation").text("Error determining your current location");
+						}
+                    }
+                );
 		});
+
 	} else {
 		console.log("Browser doesn't support geolocation!");
 	}
