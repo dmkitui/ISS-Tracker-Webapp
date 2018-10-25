@@ -16,6 +16,10 @@ a {
     line-height: 60px;
 }
 
+.header {
+    width: 100%;
+}
+
 .footer-row {
     position: absolute;
     bottom: 0;
@@ -36,4 +40,15 @@ a {
 }
 #map-div {
     height: 100%;
+}
+
+.about, title {
+    display: block;
+}
+
+.navbar-brand {
+    float: left;
+}
+#navbarNavAltMarkup {
+    float: right;
 }
