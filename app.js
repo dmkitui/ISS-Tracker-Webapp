@@ -18,6 +18,11 @@ app.use(session({
 	saveUninitialized: false
 }));
 
+app.use(function(req,res,next){
+    res.locals.session = req.session;
+    next();
+});
+
 mongoose.connect('mongodb://localhost:27017/iss-tracker', { useNewUrlParser: true });
 const db = mongoose.connection;
 
@@ -62,6 +67,6 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(3000);
-console.log('To-do API server running at: http://localhost:3000');
+console.log('ISS Tracker Webapp server running at: http://localhost:3000');
 
 module.exports.db = db;
