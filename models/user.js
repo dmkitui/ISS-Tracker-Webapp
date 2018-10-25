@@ -22,8 +22,8 @@ const UserSchema = new Schema({
 		required: [true, "Password is required"]
 	}
 });
-UserSchema.statics.authenticate = function(username, password, callback) {
-	User.findOne({ username: username})
+UserSchema.statics.authenticate = function(email, password, callback) {
+	User.findOne({ email: email})
 		.exec(function(error, user) {
 			if (error) {
 				callback(error);
