@@ -18,7 +18,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
       if session.userId
           img.avatar.img-thumbnail.hidden-xs-down(src='images/avatar.png', alt='avatar')
           li.nav-item.user-info
-            a.nav-link.m-2.menu-item(href='/users/logout') Log Out
+            .user-info
+              .text-center#username #{session.username}
+              a.logout-link(href='/users/logout') Log Out
       else
           li.nav-item
               a.nav-link.m-2.menu-item(href='/users/login') Log In
