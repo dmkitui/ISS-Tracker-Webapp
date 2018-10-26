@@ -52,3 +52,37 @@ a {
 #navbarNavAltMarkup {
     float: right;
 }
+.location {
+    padding: 5px;
+}
+.signup-form {
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 40%;
+}
+.form-check {
+    padding-top: 10px;
+}
+#getLocation {
+    margin-left: 20px;
+}
+.signup-form > input {
+    margin-right: 1px;
+}
+
+.sign-up-option a {
+    margin-left: 10px;
+}
+
+.user-info {
+    display: block;
+    height: 50px;
+}
+.logout-link {
+    display: block;
+    margin: 5px;
+    line-height: 10px;
+}
+#username {
+    color: green;
+}
