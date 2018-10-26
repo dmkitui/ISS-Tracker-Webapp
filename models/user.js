@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 
 const UserSchema = new Schema({
-	name: {
+	username: {
 		type: String,
-		required: [true, "Name is required"],
+		required: [true, "username is required"],
 		unique: [true, "Username already exists"]
 	},
 	email: {
@@ -20,6 +20,10 @@ const UserSchema = new Schema({
 	password: {
 		type: String,
 		required: [true, "Password is required"]
+	},
+	myLocation: {
+		type: String,
+		coordinates: [Number]
 	}
 });
 UserSchema.statics.authenticate = function(email, password, callback) {
