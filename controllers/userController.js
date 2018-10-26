@@ -8,9 +8,9 @@ const signupUser = function(req, res, next){
 	}
 	User.create(req.body, function(error, results) {
 		if(error){
-			res.status(400);
 			return next(error);
 		} else {
+			req.session.email = req.body.email;
 			res.redirect('/users/login');
 		}
 	});
@@ -25,6 +25,7 @@ const loginUser = function(req, res, next) {
 				return next(error);
 			} else {
 				req.session.userId = user._id;
+				req.session.username = user.username;
 				res.redirect('/home');
 			}
 		});
