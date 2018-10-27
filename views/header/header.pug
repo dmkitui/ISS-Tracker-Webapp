@@ -15,11 +15,11 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         a.nav-link.m-2.menu-item.nav-active(href='/home') Home
       li.nav-item
         a.nav-link.m-2.menu-item(href='/about') About
-      if session.userId
+      if session.user
           img.avatar.img-thumbnail.hidden-xs-down(src='images/avatar.png', alt='avatar')
           li.nav-item.user-info
             .user-info
-              .text-center#username #{session.username}
+              .text-center#username #{session.user.username}
               a.logout-link(href='/users/logout') Log Out
       else
           li.nav-item
