@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+    .signup-form.text-center
+        form(action='/users/signup' method='POST' enctype="application/x-www-form-urlencoded")
+            .form-group.col-md-12.form-inline
+                label.col-sm-4(for='username') Username:
+                input#username.form-control.col-sm-8(type='text' name='username' required=true)
+            .form-group.col-md-12.form-inline
+                label.col-sm-4(for='email') Email address:
+                input#email.form-control.col-sm-8(type='email' name='email' required=true)
+            .form-group.col-md-12.form-inline
+                label.col-sm-4(for='pwd') Password:
+                input#pwd.form-control.col-sm-8(type='password' name='password' required=true)
+            .form-group.col-md-12.form-inline
+                label.col-sm-4(for='confirm-pwd') Confirm Password:
+                input#confirm-pwd.form-control.col-sm-8(type='password' name='confirmPassword' required=true)
+            .form-group.location.col-md-12.form-inline
+                label.col-sm-4(for='location') My Location:
+                input#location.form-control.col-sm-4(type='text' name='location' disabled=true)
+                button#getLocation.btn.disabled.btn-outline-secondary(type="button") Get My Location
+            .sign-up-option
+                | Already have an account?
+                a(href='/users/login') Sign in here
+            .form-group.form-check
+                button.btn.btn-primary(type='submit') Sign Up
+

@@ -1,4 +1,3 @@
-
 async function peopleInSpace() {
     let response = await fetch("http://api.open-notify.org/astros.json");
 	if (response.ok) {
@@ -42,7 +41,7 @@ async function flyByTimes(position) {
 	$.getJSON(`http://api.open-notify.org/iss-pass.json?lat=${position.lat}&lon=${position.long}&alt=20&n=5&callback=?`, function (data) {
 		data["response"].forEach(function (d) {
 			let date = new Date(d["risetime"] * 1000);
-			$(".fly_by").append("<li>" + date.toString() + "</li>");
+			$(".fly-by").append("<li>" + date.toString() + "</li>");
 		});
 	});
 }

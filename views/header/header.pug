@@ -1,11 +1,26 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  a.navbar-brand(href='#') International Space Station Tracker
-  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
-    span.navbar-toggler-icon
-  #navbarNavAltMarkup.collapse.navbar-collapse
-    .navbar-nav
-      a.nav-item.nav-link.active(href='/home')
-        | Home
-        span.sr-only (current)
-      a.nav-item.nav-link(href='#') My Account
-      a.nav-item.nav-link(href='/about') About
+  .d-flex.flex-grow-1
+    span.w-100.d-lg-none.d-block
+      // hidden spacer to center brand on mobile
+    a.navbar-brand.d-none.d-lg-inline-block(href='#')
+      h2 International Space Station Tracker
+    a.navbar-brand-two.mx-auto.d-lg-none.d-inline-block(href='#')
+      img(src='//placehold.it/40?text=LOGO', alt='logo')
+    .w-100.text-right
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#myNavbar')
+        span.navbar-toggler-icon
+  #myNavbar.collapse.navbar-collapse.flex-grow-1.text-right
+    ul.navbar-nav.ml-auto.flex-nowrap
+      li.nav-item
+        a.nav-link.m-2.menu-item.nav-active(href='/home') Home
+      li.nav-item
+        a.nav-link.m-2.menu-item(href='/about') About
+      if session.userId
+          img.avatar.img-thumbnail.hidden-xs-down(src='images/avatar.png', alt='avatar')
+          li.nav-item.user-info
+            .user-info
+              .text-center#username #{session.username}
+              a.logout-link(href='/users/logout') Log Out
+      else
+          li.nav-item
+              a.nav-link.m-2.menu-item(href='/users/login') Log In
