@@ -36,7 +36,7 @@ a {
 .main {
     border: 2px dotted red;
     /*height: 100%;*/
-    min-height:60vh;
+    min-height:70vh;
 }
 #map-div {
     height: 100%;
@@ -85,4 +85,15 @@ a {
 }
 #username {
     color: green;
+}
+
+.info {
+    min-height: 100%;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.info .row {
+    margin: 10px;
 }
