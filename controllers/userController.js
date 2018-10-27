@@ -24,8 +24,7 @@ const loginUser = function(req, res, next) {
 				error.status = 401;
 				return next(error);
 			} else {
-				req.session.userId = user._id;
-				req.session.username = user.username;
+				req.session.user = user;
 				res.redirect('/home');
 			}
 		});

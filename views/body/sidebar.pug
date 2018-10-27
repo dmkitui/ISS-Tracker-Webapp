@@ -9,7 +9,7 @@
             .col-4
                 | Names:
             .col-8.namesOfPeople
-        if session.userId
+        if session.user
             .currentLocation.row.col-12
                 .col-4.location-info
                     | My Location:
@@ -23,9 +23,6 @@
         else
             .visitor
                 p You are currently not logged in. <a href="/users/signup">Sign Up</a> or <a href="/users/login">Log in</a> to view when the ISS will fly by your current location
-
-
-
 
 script(src="javascripts/issData.js")
 script(src="javascripts/sidebar.js")
