@@ -23,7 +23,9 @@ app.use(function(req,res,next){
     next();
 });
 
-mongoose.connect('mongodb://localhost:27017/iss-tracker', { useNewUrlParser: true });
+const url = process.env.MONGOLAB_URI;
+
+mongoose.connect(url, { useNewUrlParser: true });
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'db error'));
@@ -66,7 +68,9 @@ app.use(function(err, req, res, next) {
 	res.render('error');
 });
 
-app.listen(3000);
-console.log('ISS Tracker Webapp server running at: http://localhost:3000');
+const port = process.env.PORT || 3000;
+
+app.listen(port);
+console.log(`ISS Tracker Webapp server running at: http://localhost:${port}/home`);
 
 module.exports.db = db;

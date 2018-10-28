@@ -12,29 +12,16 @@ async function peopleInSpace() {
 }
 
 async function currentPosition() {
-	if ("geolocation" in navigator) { //check geolocation available
-		//try to get user current location using getCurrentPosition() method
-		navigator.geolocation.getCurrentPosition(function (position) {
-			let myLocation = {"lat": position.coords.latitude, "long": position.coords.longitude};
-			flyByTimes(myLocation);
-			let google_map_pos = new google.maps.LatLng( myLocation.lat, myLocation.long );
-			const google_maps_geocoder = new google.maps.Geocoder();
-                google_maps_geocoder.geocode(
-                    { 'latLng': google_map_pos },
-                    function( results, status ) {
-                        if ( status == google.maps.GeocoderStatus.OK && results[0] ) {
-                            let currentlocation = results[0].formatted_address;
-                            $(".myCurrentLocation").text(currentlocation);
-                        } else {
-                        	$(".myCurrentLocation").text("Error determining your current location");
-						}
-                    }
-                );
-		});
-
-	} else {
-		console.log("Browser doesn't support geolocation!");
-	}
+	$.getJSON("http://ip-api.com/json", function (data, status) {
+	  if(status === "success") {
+	    let myLocation = {"lat": data.lat, "long": data.lon};
+		flyByTimes(myLocation);
+		$(".myCurrentLocation").text(`${data.city}, ${data.country}`);
+	  } else {
+	  	$(".myCurrentLocation").text("Error determining you location");
+	  	$(".fly-by").text("Fly By Times not available");
+	  }
+	});
 }
 
 async function flyByTimes(position) {
