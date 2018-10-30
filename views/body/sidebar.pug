@@ -1,0 +1,29 @@
+.info
+    .container
+        .row.col-12
+            .col-4
+                | People in Space:
+            .col-8.numOfPeople
+                | ...
+        .row.col-12
+            .col-4
+                | Names:
+            .col-8.namesOfPeople
+        if session.user
+            .currentLocation.row.col-12
+                .col-4.location-info
+                    | My Location:
+                .col-8.myCurrentLocation
+                    | ...
+            .row.col-12
+                .col-4
+                    h6 Fly By Times:
+                .col-8
+                    .fly-by
+        else
+            .visitor
+                p You are currently not logged in. <a href="/users/signup">Sign Up</a> or <a href="/users/login">Log in</a> to view when the ISS will fly by your current location
+
+
+
+

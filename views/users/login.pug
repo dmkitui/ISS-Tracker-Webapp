@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    .signup-form.text-center
+        if loginError
+            .error-div.alert-warning.alert.text-center
+                p= loginError
+        form(action='/users/login' method='POST' enctype="application/x-www-form-urlencoded")
+            .form-group.col-md-12.form-inline
+                label.col-sm-4(for='email') Email address:
+                input#email.form-control.col-sm-8(type='email' name='email' value=(session.email || useremail) required=true)
+            .form-group.col-md-12.form-inline
+                label.col-sm-4(for='pwd') Password:
+                input#pwd.form-control.col-sm-8(type='password' name='password' required=true)
+            .sign-up-option
+                | Dont have an account?
+                a(href='/users/signup') Sign up here
+            .form-group.form-check
+                button.btn.btn-primary(type='submit') Log In
