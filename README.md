@@ -5,7 +5,7 @@ The International Space Station Tracker is a web application that tracks and dis
 
 A user can also sign up and be informed when the ISS will over-fly the user's current location as determined by the web app.
 
-The webapp is live here: [http://iss-tracker-webapp.herokuapp.com/home].
+The webapp is live [http://iss-tracker-webapp.herokuapp.com/home](http://iss-tracker-webapp.herokuapp.com/home).
 
 ## Getting Started
 
@@ -21,9 +21,14 @@ In a terminal:
 1. Clone this repo:
 
     ```git clone https://github.com/dmkitui/ISS-tracker-webapp.git```
-2. ```cd ISS-tracker-webapp```
-3. ```npm install```
-4. Setup MongoDB. Got to [https://mlab.com/] and sign in or set up an account and setup a database for your instance of 
+2. Go into the application directory:
+    
+    ```cd ISS-tracker-webapp```
+3. Install required dependancies:
+
+    ```npm install```
+    
+4. Setup MongoDB. Go to [https://mlab.com/] and sign in or set up an account and setup a database for your instance of 
 this webapp to use. Follow [this tutorial](http://fredrik.anderzon.se/2017/01/17/setting-up-a-free-mongodb-database-on-mlab-and-connecting-to-it-with-node-js/)
 5. After obtaining the mLab Mongo DB URL, set it as an environment variable as below:
 
