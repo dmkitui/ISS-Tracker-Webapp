@@ -2,6 +2,9 @@ extends ../layout
 
 block content
     .signup-form.text-center
+        if signupError
+            .error-div.alert-warning.alert.text-center
+                p= signupError
         form(action='/users/signup' method='POST' enctype="application/x-www-form-urlencoded")
             .form-group.col-md-12.form-inline
                 label.col-sm-4(for='username') Username:
