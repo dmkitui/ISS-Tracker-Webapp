@@ -13,7 +13,7 @@ const usersRouter = require('./routes/users');
 const app = express();
 
 app.use(session({
-	secret:'sdfsdfdsfdsfds3243223dsfsdf2332423erwe',
+	secret: process.env.SESSION_SECRET || 'db70084f-4572-428f-bd84-7e03ce77e482',
 	resave: true,
 	saveUninitialized: false
 }));
