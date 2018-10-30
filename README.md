@@ -46,9 +46,16 @@ environment variable **GOOGLE_API_KEY**.
 
     For **Windows** users: 
        ```SET GOOGLE_API_KEY=<GOOGLE_API_KEY>```
+       
+7. For added app security, set an enviroment variable **SESSION_SECRET**
+    For **Mac/Linux** users:
+       ```export SESSION_SECRET=<your_long_string_of_random_characters>```
 
-6. Type ```nodemon``` to start the server
-7. In your browser, got to:  [http://localhost:3000/home]
+    For **Windows** users: 
+       ```SET SESSION_SECRET=<your_long_string_of_random_characters>```
+
+8. Type ```nodemon``` to start the server
+9. In your browser, got to:  [http://localhost:3000/home]
 
 ## Running the tests
 
