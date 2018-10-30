@@ -32,6 +32,7 @@ In a terminal:
 this webapp to use. Follow [this tutorial](http://fredrik.anderzon.se/2017/01/17/setting-up-a-free-mongodb-database-on-mlab-and-connecting-to-it-with-node-js/)
 5. After obtaining the mLab Mongo DB URL, set it as an environment variable as below:
 
+
     For **Mac/Linux** users:
        ```export MONGOLAB_URI=<YOUR MONGO URL>```
 
@@ -41,6 +42,7 @@ this webapp to use. Follow [this tutorial](http://fredrik.anderzon.se/2017/01/17
 6. In order to properly display the maps, you will also need to [obtain a GOOGLE MAPS API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) and set it as an 
 environment variable **GOOGLE_API_KEY**. 
 
+
     For **Mac/Linux** users:
        ```export GOOGLE_API_KEY=<GOOGLE_API_KEY>```
 
@@ -48,7 +50,7 @@ environment variable **GOOGLE_API_KEY**.
        ```SET GOOGLE_API_KEY=<GOOGLE_API_KEY>```
 
 6. Type ```nodemon``` to start the server
-7. In your browser, got to:  [http://localhost:3000/home]
+7. In your browser, got to:  [http://localhost:3000/home]()
 
 ## Running the tests
 
