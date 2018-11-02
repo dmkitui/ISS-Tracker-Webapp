@@ -50,7 +50,7 @@ a {
 }
 .signup-form {
     margin: 0 auto;
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     width: 40%;
 }
 .form-check {
@@ -89,4 +89,13 @@ a {
 
 .info .row {
     margin: 10px;
+}
+
+#message-div {
+    padding-top: 20px;
+    border: 1px red solid;
+}
+#message-container {
+    height: 80px;
+    padding: 10px;
 }
