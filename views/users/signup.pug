@@ -1,17 +1,15 @@
 extends ../layout
 
 block content
+    include ../messages
     .signup-form.text-center
-        if signupError
-            .error-div.alert-warning.alert.text-center
-                p= signupError
         form(action='/users/signup' method='POST' enctype="application/x-www-form-urlencoded")
             .form-group.col-md-12.form-inline
                 label.col-sm-4(for='username') Username:
-                input#username.form-control.col-sm-8(type='text' name='username' required=true)
+                input#username.form-control.col-sm-8(type='text' name='username' value=username required=true)
             .form-group.col-md-12.form-inline
                 label.col-sm-4(for='email') Email address:
-                input#email.form-control.col-sm-8(type='email' name='email' required=true)
+                input#email.form-control.col-sm-8(type='email' name='email' value=email required=true)
             .form-group.col-md-12.form-inline
                 label.col-sm-4(for='pwd') Password:
                 input#pwd.form-control.col-sm-8(type='password' name='password' required=true)
