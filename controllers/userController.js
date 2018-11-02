@@ -18,7 +18,7 @@ const loginUser = function(req, res, next) {
 	if(req.body.email && req.body.password) {
 		User.authenticate(req.body.email, req.body.password, function(error, user) {
 			if (error || !user) {
-				res.render('users/login', {notification: {message: 'Wrong email or password', type: 'alert-danger'}, data: req.body.email});
+				res.render('users/login', {notification: {message: 'Wrong email or password', type: 'alert-danger'}, email: req.body.email});
 			} else {
 				req.session.user = user;
 				res.redirect('/home');

@@ -7,7 +7,7 @@ block content
             form(action='/users/login' method='POST' enctype="application/x-www-form-urlencoded")
                 .form-group.col-md-12.form-inline
                     label.col-sm-4(for='email') Email address:
-                    input#email.form-control.col-sm-8(type='email' name='email' value=(session.email || useremail) required=true)
+                    input#email.form-control.col-sm-8(type='email' name='email' value=email required=true)
                 .form-group.col-md-12.form-inline
                     label.col-sm-4(for='pwd') Password:
                     input#pwd.form-control.col-sm-8(type='password' name='password' required=true)
