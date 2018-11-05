@@ -5,8 +5,8 @@ const signupUser = function(req, res, next){
 		return res.render('users/signup', {notification: {message: 'Passwords do not match', type: 'alert-danger'}, username: req.body.username, email: req.body.email});
 	}
 	const passwordEvaluationErrors = passwordEvaluator(req.body.password);
-
-	if (passwordEvaluationErrors) {
+	console.log('Error: ', passwordEvaluationErrors);
+	if (passwordEvaluationErrors.length !== 0) {
 		let errors = passwordEvaluationErrors.join(', ');
 		return res.render('users/signup', {notification: {message: `Password Error: ${errors}`, type: 'alert-danger'}, username: req.body.username, email: req.body.email});
 	}
@@ -41,7 +41,6 @@ function passwordEvaluator(password) {
 	if (password.length < 8 || password.length > 28) {
 		errors.push('Should be between 8 and 28 characters long');
 	}
-
 	if (!(/[A-Z]/.test(password))) {
 		errors.push('have at least one uppercase letter');
 	}
